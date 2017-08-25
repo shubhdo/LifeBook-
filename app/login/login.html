@@ -1,0 +1,22 @@
+<h1>Login</h1>
+<form name="login" onsubmit="alert('You have successfully logged in')" autocomplete="off">
+    <table>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" required name="email" ng-model="email"></td>
+            <td><span ng-show='login.email.$dirty&&login.email.$invalid'>
+    Valid Email is required
+  </span></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" required name="password" ng-model="password"></td>
+            <td><span ng-show='login.email.$dirty&&login.email.$invalid'>
+   Password is required
+  </span></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" ng-disabled="login.$invalid"></td>
+        </tr>
+    </table>
+</form>

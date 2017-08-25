@@ -1,0 +1,96 @@
+<h1>Sign Up</h1>
+<form name="signup" autocomplete="off">
+    <ul style="list-style: none">
+            <li>First Name</li>
+            <li><input type="text" name="fname" required ng-model="obj.fname" ng-pattern="/^[a-zA-Z]+$/"></li>
+            <li><span
+                    ng-show='signup.fname.$dirty&&signup.fname.$invalid||signup.fname.$dirty&&signup.fname.$error.pattern'>
+    Valid First Name is required
+  </span></li>
+            <li>Last Name</li>
+            <li><input type="text" name="lname" required ng-model="obj.lname" ng-pattern="/^[a-zA-Z]+$/"></li>
+            <li><span
+                    ng-show='signup.lname.$dirty&&signup.lname.$invalid||signup.lname.$dirty&&signup.lname.$error.pattern'>
+    Valid Last Name is required
+  </span></li>
+        
+        
+            <li>
+                Password
+            </li>
+            <li><input type="password" name="password" required ng-model="obj.password"></li>
+            <li><span ng-show='signup.password.$dirty&&signup.password.$invalid'>
+    Password is required
+  </span></li>
+        
+        
+            <li>
+                Email
+            </li>
+            <li><input type="email" name="email" required ng-model="obj.email"></li>
+            <li><span ng-show='signup.email.$dirty&&signup.email.$invalid'>
+    Valid email is required
+  </span></li>
+        
+        
+            <li>
+                Contact Number
+            </li>
+            <li><input type="text" name="contact" required ng-model="obj.contact" ng-pattern="/(7|8|9)\d{9}/"></li>
+            <li><span
+                    ng-show='signup.contact.$dirty&&signup.contact.$invalid||signup.contact.$dirty&&signup.contact.$error.pattern'>
+    Valid Contact Number is required
+  </span></li>
+        
+        
+            <li>
+                Address
+            </li>
+            <li><input type="text" id="address" name="address" required ng-model="obj.address"
+                       ng-pattern="/^[a-zA-Z0-9\s,'-]*$/"></li>
+            <li><span
+                    ng-if='signup.address.$dirty&&signup.address.$invalid||signup.address.$dirty&&signup.address.$error.pattern'>
+    Address is required
+  </span></li>
+        
+        
+            <li>
+                Country
+            </li>
+            <li><select id="country" ng-model="obj.countrySrc" required
+            >
+                <option value="">Please choose Country</option>
+
+                <option ng-repeat="count in country">{{count.country}}</option>
+            </select></li>
+        
+        
+            <li>
+                State
+            </li>
+            <li>
+                <select id="state" required ng-disabled="!obj.countrySrc" ng-model="obj.stateSrc">
+                    <option value="">Please choose State</option>
+                    <option ng-repeat="stat in states|filter:{'c':obj.countrySrc}">{{stat.state}}</option>
+                </select>
+            </li>
+        
+        <!--  
+              <li>
+                  City
+              </li>
+              <li>
+                  <select id="city" ng-disabled="!countrySrc || !stateSrc" ng-model="city" required
+                          ng-options="city for city in stateSrc">
+                      <option value=''>Select</option>
+
+                  </select>
+              </li>
+
+          -->
+        
+            <li><input type="submit" ng-disabled="signup.$invalid" ng-click="submit(signup)" value="Show My Data"></li>
+            <li><input type="submit" ng-disabled="signup.$invalid" ng-click="add(signup)" value="Add user"></li>
+    </ul>
+        
+</form>

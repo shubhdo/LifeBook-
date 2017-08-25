@@ -1,0 +1,90 @@
+<h1>Add Company</h1>
+<form name="company" autocomplete="off">
+    <ul style="list-style: none">
+            <li>Name</li>
+            <li><input type="text" name="name" required ng-model="obj2.name" ng-pattern="/^[a-zA-Z]+$/"></li>
+            <li><span
+                    ng-show='company.name.$dirty&&company.name.$invalid||company.name.$dirty&&company.name.$error.pattern'>
+    Valid Name is required
+  </span></li>
+            <li>User Name</li>
+            <li><input type="text" name="uname" required ng-model="obj2.uname" ng-pattern="/^[a-zA-Z]+$/"></li>
+            <li><span
+                    ng-show='company.uname.$dirty&&company.uname.$invalid||company.uname.$dirty&&company.uname.$error.pattern'>
+    Valid User Name is required
+  </span></li>
+        
+        
+            <li>
+                Password
+            </li>
+            <li><input type="password" name="password" required ng-model="obj2.password"></li>
+            <li><span ng-show='company.password.$dirty&&company.password.$invalid'>
+    Password is required
+  </span></li>
+        
+        
+            <li>
+                Email
+            </li>
+            <li><input type="email" name="email" required ng-model="obj2.email"></li>
+            <li><span ng-show='company.email.$dirty&&company.email.$invalid'>
+    Valid email is required
+  </span></li>
+        
+        
+            <li>
+                Contact Number
+            </li>
+            <li><input type="text" name="contact" required ng-model="obj2.contact" ng-pattern="/(7|8|9)\d{9}/"></li>
+            <li><span
+                    ng-show='company.contact.$dirty&&company.contact.$invalid||company.contact.$dirty&&company.contact.$error.pattern'>
+    Valid Contact Number is required
+  </span></li>
+        
+        
+            <li>
+                Website
+            </li>
+            <li><input type="text" id="website" name="website" required ng-model="obj2.website"></li>
+            <li><span
+                    ng-if='company.address.$dirty&&company.address.$invalid'>
+    Website is required
+  </span></li>
+        
+        
+            <li>
+                Country
+            </li>
+            <li><select id="country" ng-model="obj2.country" required
+            >
+                <option value="">Please choose Country</option>
+
+                <option ng-repeat="count in country">{{count.country}}</option>
+            </select></li>
+        
+        
+            <li>
+                State
+            </li>
+            <li>
+                <select id="state" required ng-disabled="!obj2.country" ng-model="obj2.state">
+                    <option value="">Please choose State</option>
+                    <option ng-repeat="stat in states|filter:{'c':obj2.country}">{{stat.state}}</option>
+                </select>
+            </li>
+
+        <li>
+            City
+        </li>
+        <li>
+            <select id="city" ng-disabled="!obj2.country || !obj2.state" ng-model="obj.city" required>
+                <option value="">Please choose State</option>
+                <option ng-repeat="city in cities|filter:{'s':obj2.state}">{{city.city}}</option>
+
+            </select>
+        </li>
+            <li><input type="submit" ng-disabled="company.$invalid" ng-click="add(company)" value="Add user"></li>
+    </ul>
+        
+</form>

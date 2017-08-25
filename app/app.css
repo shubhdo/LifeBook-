@@ -1,0 +1,74 @@
+/* app css stylesheet */
+
+.menu {
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
+}
+
+/*.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}*/
+
+.menu > li {
+    display: block;
+    margin-left: 100px;
+
+}
+
+a:link {
+    color: #000000
+}
+
+a:visited {
+    color: #006600
+}
+
+a:hover {
+    color: #FFCC00
+}
+
+a:active {
+    color: #FF00CC
+}
+
+div#view {
+    position: absolute;
+    width: 600px;
+    height: 200px;
+    z-index: 15;
+    top:30%;
+    left: 30%;
+    margin: -100px 0 0 -150px;
+}
+
+/*.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}*/
+table, th, td {
+    border: 1px solid black;
+}
+
+table tr,td {
+    padding: 0.5px;
+}
+
+input.ng-invalid {
+    background-color: pink;
+}
+
+input.ng-valid {
+    background-color: lightgreen;
+}
+input {
+    padding: 8px;
+}
+#list td{
+    padding: 10px;
+}
