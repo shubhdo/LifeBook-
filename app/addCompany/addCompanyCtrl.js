@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp').controller('View3Ctrl',['$scope','dataService',"$http" ,function(scope,dataService) {
+angular.module('myApp').controller('View3Ctrl',['$scope','dataService',"$http" ,function(scope,dataService,http) {
     scope.obj={};
 
     scope.country=[
@@ -54,10 +54,9 @@ angular.module('myApp').controller('View3Ctrl',['$scope','dataService',"$http" ,
     scope.add = function (signup) {
             console.log(scope.obj2);
             alert('You have successfully registered');
-            scope.obj2 = {};
             scope.company.$setPristine(true);
             /*dataService.httpData('POST','http://localhost:3000/addCompany',scope.obj2);*/
-        $http({
+        http({
             method:'POST',
             url:'http://localhost:3000/addCompany',
             data:scope.obj2,
@@ -72,5 +71,6 @@ angular.module('myApp').controller('View3Ctrl',['$scope','dataService',"$http" ,
         });
 
     }
+    scope.obj2 = {};
 
 }]);

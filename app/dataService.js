@@ -15,11 +15,11 @@ angular.module('myApp').service('dataService',function ($q,$http) {
                     }
 
                 }).then(function successCallback(response) {
-                    console.log(response.data);
-                    resolve(response.data)
+                    console.log(response);
+                    resolve(response)
                 }, function errorCallback(response) {
                     console.log(response)
-                    reject(response.statusText)
+                    reject(response)
                 });
 
             })
