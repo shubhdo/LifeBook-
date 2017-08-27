@@ -8,8 +8,9 @@ angular.module('myApp').controller('View2Ctrl', ['$scope','dataService','$locati
         dataService.httpData('POST',"http://localhost:3000/login",scope.obj3)
             .then(function (response) {
                 if (response.status===200) {
-                    location.path('/addCompany');
-                    alert('You have successfully registered');
+                    dataService.c_id=response.data.result._id;
+                    location.path('/addEmployee');
+                    alert('You have successfully Logged In');
                 }
                     else {
                         alert(response.data.error)

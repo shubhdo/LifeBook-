@@ -1,4 +1,4 @@
-<h1>Sign Up</h1>
+<h1>Add Your Employee</h1>
 <form name="signup" autocomplete="off">
     <ul style="list-style: none">
             <li>Name</li>
@@ -68,17 +68,8 @@
 
             </select>
         </li>
-
-
-        <li>
-            Enter your company id
-        </li>
-        <li><input type="text" name="c_id" required ng-model="obj.c_id"></li>
-        <li><span ng-show='signup.c_id.$dirty&&signup.c_id.$invalid'>
-    Valid Company Id is required
-  </span></li>
-
             <li><input type="submit" ng-disabled="signup.$invalid" ng-click="add(signup)" value="Add user"></li>
     </ul>
+    <input type="button" ng-click="getList()" value="Get Employees">
         
 </form>

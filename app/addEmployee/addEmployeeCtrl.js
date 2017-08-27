@@ -56,7 +56,7 @@ angular.module('myApp').controller('View1Ctrl',['$scope','$location','dataServic
 
     scope.add = function (signup) {
 
-
+            scope.obj.c_id=dataService.c_id;
             dataService.httpData('POST',"http://localhost:3000/addEmployee",scope.obj)
                 .then(function (data) {
                     console.log(data)
@@ -69,6 +69,11 @@ angular.module('myApp').controller('View1Ctrl',['$scope','$location','dataServic
             scope.obj = {};
             scope.signup.$setPristine(true);
     }
+
+    scope.getList = function () {
+    location.path('/getEmployees')
+    }
+
 
 
 }]);

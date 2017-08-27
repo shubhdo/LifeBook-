@@ -1,0 +1,11 @@
+<h1>All Employees are </h1>
+<table id="list">
+    <tr>
+        <td>Name</td>
+        <td>Contact</td>
+    </tr>
+    <tr ng-repeat="datas in data" ng-click="seeMore(datas.data[0]._id)">
+        <td>{{datas.data[0].name}}</td>
+        <td>{{datas.data[0].email}}</td>
+    </tr>
+</table>

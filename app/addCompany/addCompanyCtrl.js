@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('myApp').controller('View3Ctrl',['$scope','dataService',"$http" ,function(scope,dataService,http) {
-    scope.obj={};
+angular.module('myApp').controller('View3Ctrl',['$scope','dataService',"$http" ,'$location',function(scope,dataService,http,location) {
+    dataService.c_id=null;
+    scope.obj2={};
 
     scope.country=[
         {
@@ -53,24 +54,24 @@ angular.module('myApp').controller('View3Ctrl',['$scope','dataService',"$http" ,
 
     scope.add = function (signup) {
             console.log(scope.obj2);
-            alert('You have successfully registered');
-            scope.company.$setPristine(true);
-            /*dataService.httpData('POST','http://localhost:3000/addCompany',scope.obj2);*/
-        http({
-            method:'POST',
-            url:'http://localhost:3000/addCompany',
-            data:scope.obj2,
-            headers: {
-                'Content-Type':'application/json'
-            }
 
-        }).success(function (response) {
-            console.log(response);
-        }).error (function (response) {
-            console.log(response)
-        });
+            dataService.httpData('POST',"http://localhost:3000/addCompany",scope.obj2)
+            .then(function (response) {
+                alert('You have successfully registered');
+                console.log(response);
+                scope.obj2 = {};
+                location.path('/login');
+
+
+            })
+            .catch(function (err) {
+                console.log(err);
+                alert(err.data.error);
+                scope.obj2 = {};
+                scope.company.$setPristine(true);
+
+            });
 
     }
-    scope.obj2 = {};
 
 }]);

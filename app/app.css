@@ -42,9 +42,8 @@ div#view {
     width: 600px;
     height: 200px;
     z-index: 15;
-    top:30%;
-    left: 30%;
-    margin: -100px 0 0 -150px;
+    top:20%;
+    left: 20%;
 }
 
 /*.menu > li + li:before {

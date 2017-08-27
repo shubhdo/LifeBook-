@@ -12,9 +12,14 @@ angular.module('myApp', ['ngRoute'])
         }).when('/login', {
             templateUrl: 'login/login.html',
             controller: 'View2Ctrl'
-        }).when('/signup', {
-            templateUrl: 'signup/signup.html',
+        }).when('/addEmployee', {
+            templateUrl: 'addEmployee/addEmployee.html',
             controller: 'View1Ctrl'
-        })
-            .otherwise({redirectTo: '/signup'});
+        }).when('/getEmployees', {
+            templateUrl: 'getEmployees/getEmployees.html',
+            controller: 'View4Ctrl'
+        }).when('/details', {
+                templateUrl: 'details/details.html',
+                controller: 'View5Ctrl'
+            }).otherwise({redirectTo: '/addCompany'});
     }])
