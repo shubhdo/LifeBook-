@@ -18,8 +18,5 @@ angular.module('myApp', ['ngRoute'])
         }).when('/getEmployees', {
             templateUrl: 'getEmployees/getEmployees.html',
             controller: 'View4Ctrl'
-        }).when('/details', {
-                templateUrl: 'details/details.html',
-                controller: 'View5Ctrl'
-            }).otherwise({redirectTo: '/addCompany'});
+        }).otherwise({redirectTo: '/addCompany'});
     }])

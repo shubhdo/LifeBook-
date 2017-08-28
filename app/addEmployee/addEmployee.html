@@ -2,29 +2,33 @@
 <form name="signup" autocomplete="off">
     <ul style="list-style: none">
             <li>Name</li>
-            <li><input type="text" name="lame" required ng-model="obj.name" ng-pattern="/^[a-zA-Z ]+$/"></li>
+            <li><input type="text" name="name" required ng-model="obj.name" ng-pattern="/^[a-zA-Z]{3,30}$/"></li>
             <li><span
                     ng-show='signup.name.$dirty&&signup.name.$invalid||signup.name.$dirty&&signup.name.$error.pattern'>
-    Valid Name is required
+        Characters should be between 3 to 30
+
   </span></li>
         
 
             <li>
                 Email
             </li>
-            <li><input type="email" name="email" required ng-model="obj.email"></li>
-            <li><span ng-show='signup.email.$dirty&&signup.email.$invalid'>
-    Valid email is required
+            <li><input type="email" name="email" required ng-model="obj.email" ng-pattern="/\S+@\S+\.\S+/"></li>
+        <li><span
+                ng-show='signup.email.$dirty&&signup.email.$invalid||signup.email.$dirty&&signup.email.$error.pattern'>
+        Please enter valid email
+
   </span></li>
-        
-        
-            <li>
+
+
+
+        <li>
                 Contact Number
             </li>
-            <li><input type="text" name="contact" required ng-model="obj.contact" ng-pattern="/(7|8|9)\d{9}/"></li>
+            <li><input type="number" name="contact" required ng-model="obj.contact" ng-pattern="/(7|8|9)\d{9}/"></li>
             <li><span
                     ng-show='signup.contact.$dirty&&signup.contact.$invalid||signup.contact.$dirty&&signup.contact.$error.pattern'>
-    Valid Contact Number is required
+    Please enter 10 digits
   </span></li>
 
         <li>

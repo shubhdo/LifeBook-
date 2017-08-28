@@ -1,22 +1,22 @@
 <h1>Login</h1>
 <form name="login" onsubmit="alert('You have successfully logged in')" autocomplete="off">
-    <table>
-        <tr>
-            <td>Username</td>
-            <td><input type="text" required name="username" ng-model="obj3.username"></td>
-            <td><span ng-show='login.username.$dirty&&login.username.$invalid'>
+    <ul style="list-style: none">
+        <li>
+            Username
+            <input type="text" required name="username" ng-model="obj3.username"></li>
+    <li>
+            <span ng-show='login.username.$dirty&&login.username.$invalid'>
     Valid Username is required
-  </span></td>
-        </tr>
-        <tr>
-            <td>Password</td>
-            <td><input type="password" required name="password" ng-model="obj3.password"></td>
-            <td><span ng-show='login.password.$dirty&&login.password.$invalid'>
+  </span></li>
+
+
+    <li>Password
+            <input type="password" required name="password" ng-model="obj3.password"></li>
+    <li>   <span ng-show='login.password.$dirty&&login.password.$invalid'>
    Password is required
-  </span></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" ng-click="loginForm(login)" ng-disabled="login.$invalid"></td>
-        </tr>
-    </table>
+  </span></li>
+        
+        
+        <li><input type="submit" ng-click="loginForm(login)" ng-disabled="login.$invalid"></li>
+    </ul>
 </form>

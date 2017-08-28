@@ -9,6 +9,7 @@ angular.module('myApp').controller('View2Ctrl', ['$scope','dataService','$locati
             .then(function (response) {
                 if (response.status===200) {
                     dataService.c_id=response.data.result._id;
+                    console.log(dataService.c_id);
                     location.path('/addEmployee');
                     alert('You have successfully Logged In');
                 }
