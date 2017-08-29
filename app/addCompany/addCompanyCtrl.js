@@ -5,56 +5,7 @@ angular.module('myApp').controller('View3Ctrl',['$scope','dataService',"$http" ,
     scope.obj2={};
 
 
-    scope.getData=function () {
-        dataService.httpData('GET','http://localhost:3000/getCountries')
-            .then(function (response) {
-                scope.country=response.data.response;
-            })
-            .catch(function (err) {
-                console.log(err);
-            })
-    };
 
-    scope.getStates=function () {
-        console.log(scope.obj2.country)
-        dataService.httpData('GET','http://localhost:3000/getStates?country='+scope.obj2.country)
-            .then(function (response) {
-               scope.states=response.data.response
-            })
-            .catch(function (err) {
-                console.log(err);
-            })
-    }
-
-
-
-    scope.cities=[
-        {
-            s:"Himachal Pradesh",
-            city:"Shimla"
-        },
-        {
-            s:"Alabama",
-            city:"New Orleans"
-        },
-        {
-            s:"New South wales",
-            city:"Wales"
-        }
-
-    ];
-    
-    scope.imageUpload=function (element) {
-        console.log("running")
-        var reader=new FileReader();
-        reader.readAsDataURL(element.files[0]);
-        reader.onload = scope.imageIsLoaded;
-    }
-
-    scope.imageIsLoaded=function (e) {
-        scope.obj2.img=e.target.result;
-
-    }
     scope.add = function (signup) {
             console.log(scope.obj2);
 
