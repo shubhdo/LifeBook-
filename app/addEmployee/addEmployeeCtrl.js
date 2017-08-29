@@ -2,6 +2,7 @@
 
 angular.module('myApp').controller('View1Ctrl',['$scope','$location','dataService' ,function(scope,location,dataService) {
     dataService.currentData=null;
+    scope.img=dataService.img;
 
     scope.obj={};
 
@@ -61,15 +62,16 @@ angular.module('myApp').controller('View1Ctrl',['$scope','$location','dataServic
             dataService.httpData('POST',"http://localhost:3000/addEmployee",scope.obj)
                 .then(function (data) {
                     console.log(data)
+                    alert('You have successfully registered');
                 })
                 .catch(function (err) {
+                    alert(err.message);
                     console.log(err)
                 });
             console.log(scope.obj);
-            alert('You have successfully registered');
             scope.obj = {};
             scope.signup.$setPristine(true);
-    }
+    };
 
     scope.getList = function () {
     location.path('/getEmployees')

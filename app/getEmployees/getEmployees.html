@@ -4,13 +4,16 @@
         <td>Name</td>
         <td>Contact</td>
     </tr>
-    <tr ng-repeat="datas in data" ng-click="seeMore(datas._id)" data-toggle="modal" data-target="#details">
+    <tr ng-repeat="datas in data" ng-click="seeMore(datas._id)" data-toggle="modal" data-target="#details" >
         <td>{{datas.name}}</td>
         <td>{{datas.email}}</td>
 
     </tr>
-</table>
 
+</table>
+<ul class="pagination" id="paginate">
+
+</ul>
 <input type="button" ng-click="goBack()" value="Logout">
 
 <div id="details" role="dialog" class="modal fade" data-backdrop="false">

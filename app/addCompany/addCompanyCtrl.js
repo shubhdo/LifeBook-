@@ -4,37 +4,29 @@ angular.module('myApp').controller('View3Ctrl',['$scope','dataService',"$http" ,
     dataService.c_id=null;
     scope.obj2={};
 
-    scope.country=[
-        {
-            id:1,
-            country:"India"
-        },
-        {
-            id:2,
-            country:"USA"
-        },
-        {
-            id:3,
-            country:"Australia"
-        }
 
-    ];
+    scope.getData=function () {
+        dataService.httpData('GET','http://localhost:3000/getCountries')
+            .then(function (response) {
+                scope.country=response.data.response;
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+    };
 
-    scope.states=[
-        {
-            c:"India",
-            state:"Himachal Pradesh"
-        },
-        {
-            c:"USA",
-            state:"Alabama"
-        },
-        {
-            c:"Australia",
-            state:"New South Wales"
-        }
+    scope.getStates=function () {
+        console.log(scope.obj2.country)
+        dataService.httpData('GET','http://localhost:3000/getStates?country='+scope.obj2.country)
+            .then(function (response) {
+               scope.states=response.data.response
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+    }
 
-    ];
+
 
     scope.cities=[
         {
@@ -51,7 +43,18 @@ angular.module('myApp').controller('View3Ctrl',['$scope','dataService',"$http" ,
         }
 
     ];
+    
+    scope.imageUpload=function (element) {
+        console.log("running")
+        var reader=new FileReader();
+        reader.readAsDataURL(element.files[0]);
+        reader.onload = scope.imageIsLoaded;
+    }
 
+    scope.imageIsLoaded=function (e) {
+        scope.obj2.img=e.target.result;
+
+    }
     scope.add = function (signup) {
             console.log(scope.obj2);
 

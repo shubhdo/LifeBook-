@@ -1,3 +1,5 @@
+<img ng-src={{'http://localhost:3000/img'+img}} alt="hello"></img>
+
 <h1>Add Your Employee</h1>
 <form name="signup" autocomplete="off">
     <ul style="list-style: none">
@@ -28,13 +30,13 @@
             <li><input type="number" name="contact" required ng-model="obj.contact" ng-pattern="/(7|8|9)\d{9}/"></li>
             <li><span
                     ng-show='signup.contact.$dirty&&signup.contact.$invalid||signup.contact.$dirty&&signup.contact.$error.pattern'>
-    Please enter 10 digits
+    Please enter 10 digits with nos starting with 7,8,9
   </span></li>
 
         <li>
             Date of Birth
         </li>
-        <li><input type="date" name="dob" required ng-model="obj.dob" ng-required="true"></li>
+        <li><input type="date" name="dob" required id="dob1" ng-model="obj.dob" ng-required="true" onfocus="dateValidation()"></li>
         <li><span
                 ng-show='signup.dob.$dirty&&signup.dob.$invalid||signup.dob.$dirty&&signup.dob.$error.pattern'>
         Please enter your valid Date of Birth
