@@ -1,0 +1,102 @@
+
+<h1 class="text-center" style="color: #40AEC2">Join your network</h1>
+<form name="signup" autocomplete="off">
+    <div class="form-group">
+        Name
+        <input type="text" name="name" required ng-model="obj.name" ng-pattern="/^[a-zA-Z]{3,30}$/"
+               class="form-control">
+        <span
+                ng-show='signup.name.$dirty&&signup.name.$invalid||signup.name.$dirty&&signup.name.$error.pattern'>
+        Characters should be between 3 to 30
+
+  </span>
+    </div>
+    <div class="form-group">
+        Email
+
+        <input type="email" name="email" required ng-model="obj.email" ng-pattern="/\S+@\S+\.\S+/" class="form-control">
+        <span
+                ng-show='signup.email.$dirty&&signup.email.$invalid||signup.email.$dirty&&signup.email.$error.pattern'>
+        Please enter valid email
+
+  </span>
+
+        <div class="form-group">
+
+            Password
+
+            <input type="password" name="password" required ng-model="obj.password" class="form-control">
+            <span ng-show='company.password.$dirty&&company.password.$invalid'>
+    Password is required
+  </span>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        Contact Number
+
+        <input type="number" name="contact" required ng-model="obj.contact" ng-pattern="/(7|8|9)\d{9}/"
+               class="form-control">
+        <span
+                ng-show='signup.contact.$dirty&&signup.contact.$invalid||signup.contact.$dirty&&signup.contact.$error.pattern'>
+    Please enter 10 digits with nos starting with 7,8,9
+  </span>
+
+    </div>
+    <div class="form-group">
+        Date of Birth
+
+        <input type="date" name="dob" required id="dob1" ng-model="obj.dob" ng-required="true"
+               onfocus="dateValidation()" class="form-control">
+        <span
+                ng-show='signup.dob.$dirty&&signup.dob.$invalid||signup.dob.$dirty&&signup.dob.$error.pattern'>
+        Please enter your valid Date of Birth
+  </span>
+    </div>
+    <div class="form-group">
+
+        Description
+
+        <input type="text" name="desc" required ng-model="obj.desc" ng-pattern="/^[a-zA-Z ]+$/" class="form-control">
+        <span
+                ng-show='signup.desc.$dirty&&signup.desc.$invalid||signup.desc.$dirty&&signup.desc.$error.pattern'>
+    Please enter some description
+  </span>
+
+    </div>
+    <div class="form-group">
+        Country
+
+        <select id="country" ng-model="obj.country" required ng-focus="getData()" ng-click="getData()"
+                ng-change="getStates(obj.country)" class="form-control"
+        >
+            <option value="">Please choose Country</option>
+
+
+            <option ng-repeat="count in country">{{count.name}}</option>
+        </select>
+
+    </div>
+    <div class="form-group">
+        State
+
+
+        <select id="state" required ng-disabled="!obj.country" ng-model="obj.state" class="form-control">
+            <option value="">Please choose State</option>
+            <option ng-repeat="stat in states">{{stat}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+
+        Logo
+
+        <input type='file' onchange="angular.element(this).scope().imageUpload(this)" accept="image/*"/>
+        <input type="submit" ng-disabled="signup.$invalid" ng-click="add(signup)" class="form-control btn btn-default"
+               value="Add user">
+    </div>
+
+    <input type="submit" ng-disabled="signup.$invalid" ng-click="add(signup)" value="Sign Up" class="btn-lg btn-default">
+
+</form>

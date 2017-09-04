@@ -2,12 +2,49 @@
 
 angular.module('myApp').service('dataService', function ($q, $http) {
 
+
+    var baseUrl='http://localhost:3000/';
     var self = this;
     self.dataArray = [];
-    self.c_id = null;
-    self.emp_id = null;
+    self.user_id = null;
+    self.img= null;
+    self.desc=null;
+    self.name=null;
 
-    self.httpData = function (method, url, data) {
+
+    self.signUp=function (data) {
+       return httpCall('POST',baseUrl+"signup",data);
+    };
+
+    self.getCountries=function () {
+      return httpCall('GET',baseUrl+"getCountries");
+    };
+
+    self.getStates=function (country) {
+        return httpCall('GET',baseUrl+"getStates?country="+country);
+    };
+
+    self.login=function (data) {
+        return httpCall('POST',baseUrl+"login",data);
+    }
+
+    self.addPost=function (data) {
+        return httpCall('POST',baseUrl+"updateStatus",data);
+    }
+    self.addFavPosts=function (data) {
+        return httpCall('PUT',baseUrl+"addFavPosts",data);
+
+    }
+
+    self.getFavPosts=function (data) {
+        return httpCall('GET',baseUrl+"getFavPosts?user_id="+data);
+    }
+
+    self.getAllPosts=function (data) {
+        return httpCall('GET',baseUrl+"getPosts?user_id="+data);
+    }
+
+    function httpCall(method, url, data) {
         return $q(function (resolve, reject) {
             $http({
                 method: method,
@@ -27,4 +64,6 @@ angular.module('myApp').service('dataService', function ($q, $http) {
 
         })
     }
+
+
 });

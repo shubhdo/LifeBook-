@@ -37,13 +37,11 @@ a:active {
     color: #FF00CC
 }
 
-div#view {
-    position: absolute;
-    width: 600px;
+div#info {
+    width: 300px;
     height: 200px;
     z-index: 15;
-    top:20%;
-    left: 20%;
+    margin: 20px;
 }
 
 /*.menu > li + li:before {
@@ -59,7 +57,7 @@ table tr,td {
 }
 
 input.ng-invalid {
-    background-color: pink;
+    background-color: #8ee0ee;
 }
 
 input.ng-valid {
@@ -70,4 +68,42 @@ input {
 }
 #list td{
     padding: 10px;
+}
+
+#infos,#formcss {
+    margin: 20px;
+    border: solid #000000 thin;
+    width: 500px;
+    height: auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+body {
+    font-family: fantasy;
+    background-color: #BFF0FF;
+}
+#post {
+    border: 1px solid #8d8d8d;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    font-family: fantasy;
+    padding: 5px;
+
+}
+#posts {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.btn-lg {
+    background-color: #BFF0F9;
+}
+#clear {
+    clear: both;
+}
+
+#fav {
+    border-bottom: solid #000000 thin;
+;
 }

@@ -19,6 +19,7 @@ function dateValidation() {
     if (date < 10)
         date = "0" + date;
     var formatDate = year + "-" + month + "-" + day;
+    console.log(formatDate);
     document.getElementById('dob1').setAttribute('max', formatDate);
     date2 = date.getTime() - 1000 * 60 * 60 * 24 * 365.25 * 60;
     date3 = new Date(date2);
@@ -31,6 +32,7 @@ function dateValidation() {
     if (date < 10)
         date = "0" + date;
     formatDate = year + "-" + month + "-" + day;
+    console.log(formatDate);
     document.getElementById('dob1').setAttribute('min', formatDate);
 }
 

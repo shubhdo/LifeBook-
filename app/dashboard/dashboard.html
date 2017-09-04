@@ -1,0 +1,66 @@
+<div id="info">
+
+    <blockquote style="margin-top: 10px;margin-left: 240px;font-size: 25px;font-family: fantasy;color: #40AEC2;white-space: nowrap">Hi {{name}} Welcome to lifebook</blockquote>
+    <div style="display: inline-block">
+    <img ng-src={{'http://localhost:3000/img'+img}} alt="Your image goes here" width="150" height="150"
+         class="img-rounded img-responsive" style="float: left;margin-right: 50px"/>
+        <span style="margin-top: 25px;color: #40AEC2;font-size: 18px">About Me :</span>
+        <br>
+        <span style="color: black">{{desc}}</span>
+    </div>
+
+</div>
+
+<div style="height: 50px">
+
+</div>
+<div>
+    <button ng-click="showForm=!showForm" class="btn-lg btn-default" style="margin-left: 40px">Update Status</button>
+    <button ng-click="showFav()" class="btn-lg btn-default" style="margin-left: 40px">Favourites</button>
+    <button ng-click="logout()" class="btn-lg btn-default" style="margin-left: 40px">Logout</button>
+
+</div>
+
+<div ng-show="showForm" id="formcss">
+    <form name="status" autocomplete="off">
+
+    <div class="form-group">
+
+        Description
+
+        <input type="text" name="desc" required ng-model="obj.desc" ng-pattern="/^[a-zA-Z ]+$/" class="form-control">
+        <span
+                ng-show='status.desc.$dirty&&status.desc.$invalid||status.desc.$dirty&&status.desc.$error.pattern'>
+    Please enter some description
+  </span>
+        <div class="form-group">
+            <input type='file' onchange="angular.element(this).scope().imageUpload(this)" accept="image/*"/>
+            <input type="submit" ng-disabled="status.$invalid" ng-click="add(status)" class="form-control btn btn-default"
+                   value="Update Status">
+        </div>
+
+
+    </div>
+    </form>
+</div>
+<div ng-show="showFavInfo" id="infos">
+    <p class="text-center" style="font-size: 21px">Your liked Posts</p>
+    <div id="fav" ng-repeat="post in fav" class="rounded ">
+        <img ng-src={{'http://localhost:3000/img'+post.status_img}} alt="Your image goes here" width="100" height="100"
+             class="img-rounded img-responsive"/>
+        <p style="margin-top: 5px">{{post.status}}</p>
+
+    </div>
+</div>
+<div id="posts">
+    <div id="post" ng-repeat="post in posts" class="rounded">
+        <img ng-src={{'http://localhost:3000/img'+post.status_img}} alt="Your image goes here" width="100" height="100"
+             class="img-rounded img-responsive"/>
+        <p style="font-size: 20px;float: left;color: #4abedd">{{post.status}}</p>
+        <div id="clear"></div>
+       <button type="button" class="btn btn-default btn-sm" id="{{post.status}}" ng-click="addFav(post)" >
+        <span class="glyphicon glyphicon-thumbs-up"></span> Like
+        </button>
+
+    </div>
+</div>

@@ -1,22 +1,28 @@
-<h1>Login</h1>
+<h1 class="text-center" style="color: #40AEC2">Login</h1>
 <form name="login" onsubmit="alert('You have successfully logged in')" autocomplete="off">
-    <ul style="list-style: none">
-        <li>
-            Username
-            <input type="text" required name="username" ng-model="obj3.username"></li>
-    <li>
-            <span ng-show='login.username.$dirty&&login.username.$invalid'>
-    Valid Username is required
-  </span></li>
+    <div class="form-group">
 
+        Email
+        <input type="email" name="email" required ng-model="obj3.email" ng-pattern="/\S+@\S+\.\S+/" class="form-control">
+        <span
+                ng-show='signup.email.$dirty&&signup.email.$invalid||signup.email.$dirty&&signup.email.$error.pattern'>
+        Please enter valid email
 
-    <li>Password
-            <input type="password" required name="password" ng-model="obj3.password"></li>
-    <li>   <span ng-show='login.password.$dirty&&login.password.$invalid'>
+  </span>
+    </div>
+    <div class="form-group">
+
+        Password
+        <input type="password" required name="password" ng-model="obj3.password" class="form-control">
+        <span ng-show='login.password.$dirty&&login.password.$invalid'>
    Password is required
-  </span></li>
-        
-        
-        <li><input type="submit" ng-click="loginForm(login)" ng-disabled="login.$invalid"></li>
-    </ul>
+  </span>
+    </div>
+<div class="text-center">
+    <input type="submit" ng-click="loginForm(login)" ng-disabled="login.$invalid" class="btn-lg btn btn-default">
+</div>
 </form>
+<div class="text-center">
+
+<button ng-click="goback()" class="btn-lg btn-default">Back</button>
+</div>
